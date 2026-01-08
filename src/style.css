@@ -1,0 +1,181 @@
+/* Temel sayfa ayarları */
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: #0d1117;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Dashboard başlık */
+.dashboard {
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.dashboard h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Toplam bakiye kartı */
+.balance-card {
+  background: #161b22;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  margin-bottom: 2rem;
+}
+
+.balance-card h2 {
+  font-size: 1.2rem;
+  color: #9ca3af;
+}
+
+.balance-card .amount {
+  font-size: 2rem;
+  color: #4ade80;
+  margin-top: 0.5rem;
+}
+
+/* Form stilleri */
+.asset-form,
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.asset-form input,
+.expense-form input {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  width: 250px;
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+.asset-form button,
+.expense-form button {
+  margin-top: 0.5rem;
+  background: #2563eb;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.asset-form button:hover,
+.expense-form button:hover {
+  background: #1e40af;
+}
+
+/* Ortak tablo stilleri */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: #161b22;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+.styled-table th {
+  background: #1f2937;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.styled-table td {
+  color: #ffffff;
+}
+
+.styled-table tr:hover {
+  background: #111827;
+  transition: 0.2s;
+}
+
+/* Responsive ve mobil uyum */
+@media (max-width: 768px) {
+  .asset-form input,
+  .expense-form input {
+    width: 90%;
+  }
+
+  .styled-table th,
+  .styled-table td {
+    padding: 10px 8px;
+  }
+}
+.styled-table button {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.styled-table button:hover {
+  background: #b91c1c;
+}
+
+.asset-form select,
+.expense-form select {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  width: 250px;
+  background-color: #1f2937;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.asset-form select:focus,
+.expense-form select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #2563eb;
+}
+.expense-toggle-btn {
+  display: block;
+  margin: 1.5rem auto 1rem auto;
+  background: #2563eb;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.expense-toggle-btn:hover {
+  background: #1e40af;
+}
+@media (max-width: 768px) {
+  .expense-form select {
+    width: 90%;
+  }
+}
