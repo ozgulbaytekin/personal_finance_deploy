@@ -1,8 +1,12 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
+import.meta.env.VITE_API_URL
+
 
 const router = useRouter()
+const API_BASE_URL = import.meta.env.VITE_API_URL
+
 
 // durum değişkenleri
 const registerActive = ref(false)
@@ -28,7 +32,7 @@ async function doRegister(e) {
   }
 
   try {
-    const res = await fetch('http://localhost:3000/api/register', {
+    const res = await fetch(`${API_BASE_URL}/api/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: emailReg.value, password: passwordReg.value })
@@ -56,7 +60,7 @@ async function doLogin(e) {
   }
 
   try {
-    const res = await fetch('http://localhost:3000/api/login', {
+    const res = await fetch(`${API_BASE_URL}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: emailLogin.value, password: passwordLogin.value })
