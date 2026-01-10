@@ -1,11 +1,13 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
-import.meta.env.VITE_API_URL
+
 
 
 const router = useRouter()
 const API_BASE_URL = import.meta.env.VITE_API_URL
+console.log("API_BASE_URL =", API_BASE_URL)
+
 
 
 // durum değişkenleri

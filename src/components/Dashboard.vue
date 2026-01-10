@@ -1,5 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+const API_BASE_URL = import.meta.env.VITE_API_URL
+
 
 const totalBalance = ref(0)
 const assets = ref([])
@@ -28,7 +30,7 @@ async function addAsset() {
   const userId = localStorage.getItem("userId")
   if (!userId) return alert("Giriş yapmadınız")
 
-  const res = await fetch("http://localhost:3000/api/add-asset", {
+const res = await fetch(`${API_BASE_URL}/api/add-asset`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ user_id: Number(userId), name: newAssetName.value, amount })
@@ -61,7 +63,7 @@ async function addExpense() {
     return alert("Tüm zorunlu alanları doldurun");
   }
 
-  const response = await fetch("http://localhost:3000/api/add-expense", {
+const response = await fetch(`${API_BASE_URL}/api/add-expense`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -99,20 +101,27 @@ async function deleteAsset(id) {
   const userId = localStorage.getItem("userId")
   if (!userId) return
 
-  await fetch(`http://localhost:3000/api/delete-asset/${id}/${userId}`, {
-    method: "DELETE"
-  })
+  const res = await fetch(
+    `${API_BASE_URL}/api/delete-asset/${id}/${userId}`,
+    { method: "DELETE" }
+  )
+
+  if (!res.ok) {
+    const err = await res.json()
+    return alert(err.error || "Silme işlemi başarısız")
+  }
 
   assets.value = assets.value.filter(a => a.id !== id)
   totalBalance.value = assets.value.reduce((s, a) => s + a.amount, 0)
 }
+
 
 // --- LOAD ---
 async function loadAssets() {
   const userId = localStorage.getItem("userId")
   if (!userId) return
 
-  const res = await fetch(`http://localhost:3000/api/assets/${userId}`)
+const res = await fetch(`${API_BASE_URL}/api/assets/${userId}`)
   assets.value = await res.json()
   totalBalance.value = assets.value.reduce((s, a) => s + a.amount, 0)
 }
@@ -121,7 +130,7 @@ async function loadExpenses() {
   const userId = localStorage.getItem("userId")
   if (!userId) return
 
-  const res = await fetch(`http://localhost:3000/api/expenses/${userId}`)
+const res = await fetch(`${API_BASE_URL}/api/expenses/${userId}`)
   const data = await res.json()
 
   expenses.value = data.map(e => ({
