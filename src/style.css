@@ -145,30 +145,34 @@ html, body, #app {
 /* Yüzen semboller için stil */
 
 .floating-symbols {
-  position: fixed;
+  position: absolute;
   inset: 0;
+  display: flex;
+  justify-content: center; /* ORTA HAT */
   pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
+  z-index: 1;
 }
 
-.floating-symbol {
+.floating-symbols span {
   position: absolute;
-  top: -40px; /* HEPSİ AYNI ÇİZGİDEN BAŞLAR */
-  font-size: 22px;
-  opacity: 0.25;
+  top: -10vh;
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.18);
+
   animation-name: fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  animation-duration: var(--speed);
+  animation-delay: var(--delay);
 }
 
-/* Düşme animasyonu */
 @keyframes fall {
   from {
-    transform: translateY(0);
+    transform: translateY(-10vh);
   }
   to {
-    transform: translateY(120vh); /* tam sayfa + biraz fazlası */
+    transform: translateY(110vh);
   }
 }
+
 
