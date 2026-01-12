@@ -301,4 +301,13 @@ h1 {
 .expense-toggle-btn:hover {
   background: #1e40af;
 }
+.login-page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
 
+.form-container {
+  position: relative;
+  z-index: 2;
+}
