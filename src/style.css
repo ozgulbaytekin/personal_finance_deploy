@@ -269,3 +269,36 @@ h1 {
   text-align: left;
   color: #9ca3af;
 }
+/* FIX: dropdown ve harcama butonu stillerini zorla uygula */
+
+.asset-form select,
+.expense-form select {
+  background-color: #1f2937;
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+  padding: 0.5rem;
+  width: 250px;
+}
+
+.asset-form select:focus,
+.expense-form select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #2563eb;
+}
+
+.asset-form button,
+.expense-form button,
+.expense-toggle-btn {
+  background: #2563eb;
+  color: white;
+  border-radius: 6px;
+  border: none;
+}
+
+.asset-form button:hover,
+.expense-form button:hover,
+.expense-toggle-btn:hover {
+  background: #1e40af;
+}
+
