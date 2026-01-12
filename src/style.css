@@ -145,23 +145,22 @@ html, body, #app {
 /* Yüzen semboller için stil */
 
 .floating-symbols {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  display: flex;
-  justify-content: center; /* ORTA HAT */
+  overflow: hidden;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0; /* background */
 }
 
 .floating-symbols span {
   position: absolute;
   top: -10vh;
-  font-size: 26px;
-  color: rgba(255, 255, 255, 0.18);
+  left: var(--x);
 
-  animation-name: fall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.15);
+
+  animation: fall linear infinite;
   animation-duration: var(--speed);
   animation-delay: var(--delay);
 }
@@ -169,10 +168,16 @@ html, body, #app {
 @keyframes fall {
   from {
     transform: translateY(-10vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
   }
   to {
     transform: translateY(110vh);
+    opacity: 0;
   }
 }
+
 
 
