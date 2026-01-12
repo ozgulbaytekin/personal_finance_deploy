@@ -154,37 +154,47 @@ html, body, #app {
 
 .floating-symbols span {
   position: absolute;
-  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.35);
   will-change: transform;
 
-  /* SÜREKLİ AKIŞ */
-  animation-name: flowDown;
+  animation-name: conveyor;
+  animation-duration: 18s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-
-  /* SIRA HALİNDE DİZİLİM */
-  left: calc(var(--i) * 4%);
 }
 
-/* HER SEMBOL SADECE HIZ FARKLI */
-.floating-symbols span:nth-child(3n) {
-  animation-duration: 14s;
-}
-.floating-symbols span:nth-child(3n + 1) {
-  animation-duration: 18s;
-}
-.floating-symbols span:nth-child(3n + 2) {
-  animation-duration: 22s;
-}
+/* SIRA HALİNDE BAŞLANGIÇ (akış hissi) */
+.floating-symbols span:nth-child(1)  { animation-delay: 0s; }
+.floating-symbols span:nth-child(2)  { animation-delay: 1s; }
+.floating-symbols span:nth-child(3)  { animation-delay: 2s; }
+.floating-symbols span:nth-child(4)  { animation-delay: 3s; }
+.floating-symbols span:nth-child(5)  { animation-delay: 4s; }
+.floating-symbols span:nth-child(6)  { animation-delay: 5s; }
+.floating-symbols span:nth-child(7)  { animation-delay: 6s; }
+.floating-symbols span:nth-child(8)  { animation-delay: 7s; }
+.floating-symbols span:nth-child(9)  { animation-delay: 8s; }
+.floating-symbols span:nth-child(10) { animation-delay: 9s; }
+.floating-symbols span:nth-child(11) { animation-delay: 10s; }
+.floating-symbols span:nth-child(12) { animation-delay: 11s; }
+.floating-symbols span:nth-child(13) { animation-delay: 12s; }
+.floating-symbols span:nth-child(14) { animation-delay: 13s; }
+.floating-symbols span:nth-child(15) { animation-delay: 14s; }
+.floating-symbols span:nth-child(16) { animation-delay: 15s; }
+.floating-symbols span:nth-child(17) { animation-delay: 16s; }
+.floating-symbols span:nth-child(18) { animation-delay: 17s; }
+.floating-symbols span:nth-child(19) { animation-delay: 18s; }
 
-/* TEK EKSEN, BAŞTAN SONA */
-@keyframes flowDown {
+/* TAM DÜZGÜN AKIŞ */
+@keyframes conveyor {
   from {
-    transform: translateY(-120vh);
+    transform: translate(-50%, -120vh);
   }
   to {
-    transform: translateY(120vh);
+    transform: translate(-50%, 120vh);
   }
 }
