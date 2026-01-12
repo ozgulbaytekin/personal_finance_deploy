@@ -105,16 +105,16 @@ async function doLogin(e) {
     <div class="form-container">
       
       <div v-if="!registerActive" class="card login" :class="{ error: emptyFields }">
-        <h1>Sign In</h1>
+        <h1>Giriş Yap</h1>
         <form @submit="doLogin">
           <input v-model="emailLogin" type="email" placeholder="Email" required />
           <input v-model="passwordLogin" type="password" placeholder="Password" required />
-          <input type="submit" value="Login" class="btn" />
+          <input type="submit" value="Giriş yap" class="btn" />
           <p>
-            Don't have an account?
-            <a href="#" @click.prevent="registerActive = true; emptyFields = false">Sign up here</a>
+            Hesabınız yok mu?
+            <a href="#" @click.prevent="registerActive = true; emptyFields = false">Kayıt olun</a>
           </p>
-          <p><a href="#">Forgot your password?</a></p>
+          <p><a href="#">Şifrenizi mi unuttunuz?</a></p>
         </form>
       </div>
 
@@ -123,12 +123,12 @@ async function doLogin(e) {
         <h1>Sign Up</h1>
         <form @submit="doRegister">
           <input v-model="emailReg" type="email" placeholder="Email" required />
-          <input v-model="passwordReg" type="password" placeholder="Password" required />
+          <input v-model="passwordReg" type="password" placeholder="Şifre" required />
           <input v-model="confirmReg" type="password" placeholder="Confirm Password" required />
           <input type="submit" value="Register" class="btn" />
           <p>
-            Already have an account?
-            <a href="#" @click.prevent="registerActive = false; emptyFields = false">Sign in here</a>
+            Hesabınız zaten var mı?
+            <a href="#" @click.prevent="registerActive = false; emptyFields = false">Giriş yapın</a>
           </p>
         </form>
       </div>
