@@ -301,13 +301,35 @@ h1 {
 .expense-toggle-btn:hover {
   background: #1e40af;
 }
+
+
+
+
+/* LOGIN PAGE – FORM MERKEZLEME (KESİN FIX) */
+
 .login-page {
   position: relative;
-  z-index: 1;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-container {
   position: relative;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Login / Register kartı */
+.card.login,
+.card.register {
+  width: 360px;
+  padding: 2rem;
+  background: #161b22;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
