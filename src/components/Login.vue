@@ -118,16 +118,15 @@ async function doLogin(e) {
         </form>
       </div>
 
-      
-      <div v-else class="card register" :class="{ error: emptyFields }">
+      <div v-if="registerActive" class="card register" :class="{ error: emptyFields }">
         <h1>Kayıt Ol</h1>
         <form @submit="doRegister">
           <input v-model="emailReg" type="email" placeholder="Email" required />
           <input v-model="passwordReg" type="password" placeholder="Şifre" required />
-          <input v-model="confirmReg" type="password" placeholder="Şifre Tekrar" required />
-          <input type="submit" value="Kayıt Ol" class="btn" />
+          <input v-model="confirmReg" type="password" placeholder="Şifreyi Onayla" required />
+          <input type="submit" value="Kayıt ol" class="btn" />
           <p>
-            Hesabınız zaten var mı?
+            Zaten hesabınız var mı?
             <a href="#" @click.prevent="registerActive = false; emptyFields = false">Giriş yapın</a>
           </p>
         </form>
